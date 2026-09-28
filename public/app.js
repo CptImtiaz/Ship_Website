@@ -6,6 +6,11 @@ const packageSelect = document.getElementById("package");
 const durationSelect = document.getElementById("duration");
 const boatSelect = document.getElementById("boat");
 const addonCheckboxes = [...document.querySelectorAll(".addons input[type=checkbox]")];
+const baseFee = document.getElementById("baseFee");
+const hourlyLabel = document.getElementById("hourlyLabel");
+const hourlyFee = document.getElementById("hourlyFee");
+const boatLabel = document.getElementById("boatLabel");
+const boatFee = document.getElementById("boatFee");
 const tripSubtotal = document.getElementById("tripSubtotal");
 const addonTotal = document.getElementById("addonTotal");
 const grandTotal = document.getElementById("grandTotal");
@@ -27,10 +32,18 @@ const PRICING = {
 
 const BOAT_SURCHARGE = {
   fishing: 0,
-  speedboat: 0,
-  recreational: 0,
-  luxury: 0,
-  commercial: 0
+  speedboat: 100,
+  recreational: 80,
+  luxury: 350,
+  commercial: 150
+};
+
+const BOAT_NAMES = {
+  fishing: "Fishing Boat",
+  speedboat: "Speedboat",
+  recreational: "Recreational Boat",
+  luxury: "Luxury Yacht",
+  commercial: "Commercial Vessel"
 };
 
 // ============================================================
@@ -46,20 +59,30 @@ function calculatePrice() {
   const hours = Number(durationSelect.value);
   const boat = boatSelect.value;
 
-  // Base price + hourly rate + boat surcharge
-  const basePrice = PRICING[pkg].base + (PRICING[pkg].perHour * hours) + BOAT_SURCHARGE[boat];
+  const experienceBase = PRICING[pkg].base;
+  const hourlyCharge = PRICING[pkg].perHour * hours;
+  const boatCharge = BOAT_SURCHARGE[boat];
+  const basePrice = experienceBase + hourlyCharge + boatCharge;
   
   // Add-ons
   const addonsPrice = addonCheckboxes
     .filter(checkbox => checkbox.checked)
     .reduce((sum, checkbox) => sum + Number(checkbox.value), 0);
 
-  // Update display
+  // Update full pricing breakdown
+  baseFee.textContent = money(experienceBase);
+  hourlyLabel.textContent = `${hours} hours × RM ${PRICING[pkg].perHour}`;
+  hourlyFee.textContent = money(hourlyCharge);
+  boatLabel.textContent = BOAT_NAMES[boat];
+  boatFee.textContent = boatCharge === 0 ? "Included" : money(boatCharge);
   tripSubtotal.textContent = money(basePrice);
   addonTotal.textContent = money(addonsPrice);
   grandTotal.textContent = money(basePrice + addonsPrice);
 
   return {
+    experienceBase,
+    hourlyCharge,
+    boatCharge,
     base: basePrice,
     addons: addonsPrice,
     total: basePrice + addonsPrice
