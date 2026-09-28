@@ -1838,3 +1838,126 @@ body.lightbox-open{overflow:hidden}
     scroll-margin-top:64px;
   }
 }
+
+/* ============================================================
+   DESKTOP + MOBILE BOOKING WIZARD
+   ============================================================ */
+
+/* Remove decorative circles everywhere */
+#how:before,
+.pricing-section:before{
+  display:none!important;
+  content:none!important;
+}
+
+/* Show the booking wizard on all screen sizes */
+.mobile-booking-progress{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:22px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+
+.mobile-progress-step{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:#8a9998;
+  padding:0;
+  min-width:70px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.mobile-progress-step span{
+  width:28px;
+  height:28px;
+  border-radius:9px;
+  display:grid;
+  place-items:center;
+  background:#edf2f0;
+  color:#70807e;
+  font-size:11px;
+}
+
+.mobile-progress-step.is-active{
+  color:var(--teal-dark);
+}
+
+.mobile-progress-step.is-active span,
+.mobile-progress-step.is-done span{
+  background:var(--teal);
+  color:#fff;
+}
+
+.mobile-progress-line{
+  flex:1;
+  height:1px;
+  background:#dbe4e1;
+}
+
+.booking-card.mobile-booking-step-1 .mobile-step-item:not(.mobile-step-1-item),
+.booking-card.mobile-booking-step-2 .mobile-step-item:not(.mobile-step-2-item),
+.booking-card.mobile-booking-step-3 .mobile-step-item:not(.mobile-step-3-item){
+  display:none!important;
+}
+
+.mobile-step-actions{
+  display:none;
+  align-items:center;
+  gap:12px;
+  margin-top:20px;
+}
+
+.booking-card.mobile-booking-step-1 .mobile-step-1-action,
+.booking-card.mobile-booking-step-2 .mobile-step-2-action,
+.booking-card.mobile-booking-step-3 .mobile-step-3-action{
+  display:flex;
+}
+
+.mobile-step-actions .btn{
+  min-height:48px;
+}
+
+.mobile-step-2-action .btn{
+  margin-left:auto;
+}
+
+.mobile-back-btn{
+  min-height:44px;
+  padding:10px 10px;
+  border:0;
+  background:transparent;
+  color:var(--teal-dark);
+  font-weight:800;
+  cursor:pointer;
+}
+
+@media(min-width:681px){
+  .booking-card{
+    min-height:520px;
+  }
+
+  .booking-card .form-title{
+    margin-bottom:20px;
+  }
+
+  .booking-card.mobile-booking-step-1 .form-grid,
+  .booking-card.mobile-booking-step-2 .form-grid{
+    align-items:end;
+  }
+
+  .booking-card.mobile-booking-step-3 .customer-grid{
+    margin-top:0;
+  }
+
+  .booking-card.mobile-booking-step-3 .summary{
+    margin-top:22px;
+  }
+}
