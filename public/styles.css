@@ -84,7 +84,7 @@ button{color:inherit}
 .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;font-size:14px;color:rgba(255,255,255,.82)}
 .hero-card{overflow:hidden;background:#fff;color:var(--ink);border-radius:25px;box-shadow:var(--shadow)}
 .hero-card-photo{height:185px;background-position:center;background-size:cover}
-.rantau-hero-photo{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/3.webp")}
+.rantau-hero-photo{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/21.webp")}
 .hero-card-content{padding:25px}
 .hero-card-badge{display:inline-block;background:#fff1d6;color:#875800;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;margin-bottom:16px}
 .hero-card-content p{margin-bottom:18px}
@@ -155,11 +155,11 @@ button{color:inherit}
 .boat-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid rgba(220,229,226,.8)}
 .featured-boat{transform:translateY(-8px)}
 .boat-photo{height:255px;background-position:center;background-size:cover;position:relative}
-.photo-1{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/25.webp")}
-.photo-2{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/3.webp")}
-.photo-3{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/29.webp")}
-.photo-4{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/30.webp")}
-.photo-5{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/4.webp")}
+.photo-1{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/21.webp")}
+.photo-2{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/22.webp")}
+.photo-3{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/23.webp")}
+.photo-4{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/24.webp")}
+.photo-5{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/26.webp")}
 .capacity-pill,.popular-pill{position:absolute;top:15px;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}
 .capacity-pill{left:15px;background:rgba(255,255,255,.93);color:var(--ink)}
 .popular-pill{right:15px;background:var(--teal);color:#fff}
@@ -309,7 +309,7 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
 .location-card p{font-size:14px}
 .boarding-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
 .arrival-note{font-size:13px!important;color:var(--muted);margin-top:16px!important}
-.rantau-booking-photo{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/1.webp")!important}
+.rantau-booking-photo{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/25.webp")!important}
 @media (max-width:960px){
   .boarding-grid{grid-template-columns:1fr}
   .boarding-image img{height:390px}
