@@ -569,3 +569,80 @@ async function getPricingInfo() {
     if (event.key === 'ArrowRight') showImage(currentIndex + 1);
   });
 })();
+
+
+/* Mobile 3-step booking flow */
+(() => {
+  const form = document.getElementById('bookingForm');
+  if (!form) return;
+
+  const next1 = document.getElementById('mobileBookingNext1');
+  const next2 = document.getElementById('mobileBookingNext2');
+  const back2 = document.getElementById('mobileBookingBack2');
+  const back3 = document.getElementById('mobileBookingBack3');
+  const progressButtons = Array.from(form.querySelectorAll('[data-mobile-step-jump]'));
+
+  let currentStep = 1;
+
+  function isMobile() {
+    return window.matchMedia('(max-width: 680px)').matches;
+  }
+
+  function setStep(step) {
+    currentStep = Math.max(1, Math.min(3, step));
+    form.classList.remove('mobile-booking-step-1', 'mobile-booking-step-2', 'mobile-booking-step-3');
+    form.classList.add('mobile-booking-step-' + currentStep);
+
+    progressButtons.forEach((button) => {
+      const buttonStep = Number(button.dataset.mobileStepJump);
+      button.classList.toggle('is-active', buttonStep === currentStep);
+      button.classList.toggle('is-done', buttonStep < currentStep);
+    });
+
+    if (isMobile()) {
+      const top = form.getBoundingClientRect().top + window.scrollY - 78;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  function validateStep1() {
+    const ids = ['package', 'date', 'guests'];
+    for (const id of ids) {
+      const field = document.getElementById(id);
+      if (field && !field.checkValidity()) {
+        field.reportValidity();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  next1?.addEventListener('click', () => {
+    if (!validateStep1()) return;
+    setStep(2);
+  });
+
+  next2?.addEventListener('click', () => setStep(3));
+  back2?.addEventListener('click', () => setStep(1));
+  back3?.addEventListener('click', () => setStep(2));
+
+  progressButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!isMobile()) return;
+      const target = Number(button.dataset.mobileStepJump);
+      if (target === 1) return setStep(1);
+      if (target === 2 && validateStep1()) return setStep(2);
+      if (target === 3 && validateStep1()) return setStep(3);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobile()) {
+      form.classList.remove('mobile-booking-step-1', 'mobile-booking-step-2', 'mobile-booking-step-3');
+    } else if (![1,2,3].includes(currentStep)) {
+      setStep(1);
+    } else {
+      form.classList.add('mobile-booking-step-' + currentStep);
+    }
+  });
+})();
