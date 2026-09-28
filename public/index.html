@@ -24,7 +24,6 @@
         <a href="#boats">Boats</a>
         <a href="#pricing">Pricing</a>
         <a href="#boarding">Boarding</a>
-        <a href="#kelong">Kelong</a>
         <a href="#kelong-video">Video</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -316,83 +315,6 @@
       </div>
     </section>
 
-    <section class="kelong-section" id="kelong">
-      <div class="container">
-        <div class="section-head kelong-compact-head">
-          <div>
-            <span class="eyebrow">KELONG ALADDIN • PULAU INDAH</span>
-            <h2>Fish, relax and stay over the water.</h2>
-          </div>
-          <p>A private kelong experience for up to 8 guests at Pangkalan Jeti Teluk Nipah, Pulau Indah, Klang.</p>
-        </div>
-
-        <div class="kelong-experience-grid">
-          <figure class="kelong-experience-main">
-            <img src="/images/kelong-aladdin-1.webp" alt="Kelong Aladdin floating over the water at Pulau Indah" />
-            <figcaption>
-              <span>REAL KELONG EXPERIENCE</span>
-              <strong>Kelong Aladdin • Pulau Indah</strong>
-            </figcaption>
-          </figure>
-
-          <div class="kelong-experience-side">
-            <figure>
-              <img src="/images/kelong-aladdin-2.webp" alt="Front view of Kelong Aladdin" />
-            </figure>
-
-            <div class="kelong-quick-card">
-              <span>PRIVATE KELONG</span>
-              <h3>Up to 8 guests</h3>
-              <p>One return boat transfer included.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="kelong-quick-grid">
-          <article>
-            <span>WEEKDAY</span>
-            <h3>RM 400 / 12h</h3>
-            <p>RM 600 / 24h</p>
-          </article>
-          <article>
-            <span>WEEKEND / PUBLIC HOLIDAY</span>
-            <h3>RM 500 / 12h</h3>
-            <p>RM 800 / 24h</p>
-          </article>
-          <article>
-            <span>TRANSFER TIMES</span>
-            <h3>8 AM – 8 PM</h3>
-            <p>or 8 PM – 8 AM</p>
-          </article>
-          <article>
-            <span>LOCATION</span>
-            <h3>Pulau Indah, Klang</h3>
-            <p>Pangkalan Jeti Teluk Nipah</p>
-          </article>
-        </div>
-
-        <div class="kelong-compact-info">
-          <div>
-            <h3>Included facilities</h3>
-            <p>Solar power, rest & prayer area, toilet, BBQ kit, 300L general-use water, cooking equipment and gas stove.</p>
-          </div>
-          <div>
-            <h3>Bring with you</h3>
-            <p>Fishing gear, ice, bait, cooler box, food ingredients, drinking water and personal supplies.</p>
-          </div>
-          <div>
-            <h3>Extra boat service</h3>
-            <p>Emergency boat or extra delivery trip: RM 60. Standard return transfer is included.</p>
-          </div>
-        </div>
-
-        <div class="kelong-compact-actions">
-          <a class="btn btn-light" href="#book" data-package="kelong">Book Kelong Aladdin</a>
-          <a class="btn btn-kelong-outline" href="https://wa.me/60195889660" target="_blank" rel="noopener">WhatsApp 019-588 9660</a>
-        </div>
-      </div>
-    </section>
-
     <section class="section kelong-video-section" id="kelong-video">
       <div class="container">
         <div class="section-head">
@@ -513,7 +435,7 @@
 
         <div class="pricing-note">
           <strong>How the total is calculated:</strong>
-          <span>Experience base fee + hourly charge + selected boat-type charge + selected add-ons = final checkout total.</span>
+          <span>Experience base fee + hourly charge + boat-type charge + optional Kelong stay + selected add-ons = final checkout total.</span>
         </div>
       </div>
     </section>
@@ -528,7 +450,7 @@
         </div>
 
         <div class="steps-grid">
-          <div class="step"><b>01</b><h3>Choose</h3><p>Choose a boat trip, fishing trip, boathouse stay, or Kelong Aladdin experience.</p></div>
+          <div class="step"><b>01</b><h3>Choose</h3><p>Choose your main experience, then optionally add Kelong Aladdin.</p></div>
           <div class="step"><b>02</b><h3>Schedule</h3><p>Pick your date, start time, duration and group size.</p></div>
           <div class="step"><b>03</b><h3>Pay online</h3><p>Complete checkout through your secure payment gateway.</p></div>
           <div class="step"><b>04</b><h3>Meet & go</h3><p>Arrive at the departure point and meet your assigned boatman.</p></div>
@@ -579,7 +501,7 @@
         <div class="booking-intro">
           <span class="eyebrow">ONLINE BOOKING</span>
           <h2>Build your trip.</h2>
-          <p>Book a boat or fishing trip with no kelong required. Kelong Aladdin is optional and uses its own fixed 12-hour and 24-hour rates.</p>
+          <p>Book any trip with or without Kelong Aladdin. For normal packages choose Kelong: N/A, Weekday, or Weekend/Public Holiday. Kelong Experience requires a weekday or weekend selection.</p>
 
           <div class="booking-side-photo rantau-booking-photo"></div>
 
@@ -587,7 +509,7 @@
             <span>🔒 Secure online checkout</span>
             <span>📅 Date & time selection</span>
             <span>🚤 Boat selection</span>
-            <span>🏝️ Kelong optional — N/A for normal trips</span>
+            <span>🏝️ Add Kelong to any package, or choose N/A</span>
           </div>
         </div>
 
@@ -615,8 +537,18 @@
 
             <label id="kelongRateTypeField" class="kelong-booking-field">
               Kelong
-              <select id="kelongRateType" disabled>
+              <select id="kelongRateType">
                 <option value="na">N/A — No kelong</option>
+                <option value="weekday">Weekday</option>
+                <option value="weekend">Weekend / Public Holiday</option>
+              </select>
+            </label>
+
+            <label id="kelongDurationField" class="kelong-booking-field" hidden>
+              Kelong duration
+              <select id="kelongDuration">
+                <option value="12">12 hours</option>
+                <option value="24">24 hours</option>
               </select>
             </label>
 
@@ -681,6 +613,7 @@
             <div><span>Experience base fee</span><b id="baseFee">RM 210</b></div>
             <div><span id="hourlyLabel">6 hours × RM 40</span><b id="hourlyFee">RM 240</b></div>
             <div><span id="boatLabel">Fishing Boat</span><b id="boatFee">RM 0</b></div>
+            <div id="kelongSummaryRow"><span id="kelongSummaryLabel">Kelong</span><b id="kelongFee">N/A</b></div>
             <div><span>Add-ons</span><b id="addonTotal">RM 0</b></div>
             <div class="subtotal"><span>Trip subtotal</span><b id="tripSubtotal">RM 450</b></div>
             <div class="total"><span>Total payable</span><strong id="grandTotal">RM 450</strong></div>
