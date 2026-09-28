@@ -23,9 +23,11 @@ function bookingId() {
 // BOAT & PRICING DATA
 // ============================================================
 const BOATS = {
-  small: { name: "Sea Explorer 01", capacity: 6, basePrice: 300 },
-  medium: { name: "Sea Explorer 02", capacity: 10, basePrice: 400 },
-  large: { name: "Sea Explorer 03", capacity: 12, basePrice: 500 }
+  fishing: { name: "Fishing Boat", category: "Fishing Boats" },
+  speedboat: { name: "Speedboat", category: "Speedboats" },
+  recreational: { name: "Recreational Boat", category: "Recreational Boats" },
+  luxury: { name: "Luxury Yacht", category: "Luxury Yachts" },
+  commercial: { name: "Commercial Vessel", category: "Commercial Vessels" }
 };
 
 const EXPERIENCES = {
