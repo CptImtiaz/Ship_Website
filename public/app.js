@@ -26,9 +26,11 @@ const PRICING = {
 };
 
 const BOAT_SURCHARGE = {
-  small: 0,
-  medium: 80,
-  large: 150
+  fishing: 0,
+  speedboat: 0,
+  recreational: 0,
+  luxury: 0,
+  commercial: 0
 };
 
 // ============================================================
