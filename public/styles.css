@@ -1077,3 +1077,106 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
     grid-template-columns:1fr;
   }
 }
+
+/* Gallery lightbox */
+.gallery-card{cursor:zoom-in}
+.gallery-card:focus-within{outline:2px solid var(--teal);outline-offset:3px}
+.gallery-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:34px 72px;
+  background:rgba(3,13,15,.92);
+  backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .22s ease,visibility .22s ease;
+}
+.gallery-lightbox.is-open{
+  opacity:1;
+  visibility:visible;
+}
+.lightbox-content{
+  width:min(1180px,90vw);
+  max-height:88vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.lightbox-content img{
+  display:block;
+  max-width:100%;
+  max-height:80vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:18px;
+  box-shadow:0 28px 80px rgba(0,0,0,.45);
+}
+.lightbox-caption{
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-align:center;
+}
+.lightbox-close,
+.lightbox-nav{
+  position:absolute;
+  border:0;
+  color:#fff;
+  background:rgba(255,255,255,.11);
+  backdrop-filter:blur(8px);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:background .2s ease,transform .2s ease;
+}
+.lightbox-close:hover,
+.lightbox-nav:hover{
+  background:rgba(255,255,255,.20);
+}
+.lightbox-close{
+  top:20px;
+  right:22px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:30px;
+  line-height:1;
+}
+.lightbox-nav{
+  top:50%;
+  transform:translateY(-50%);
+  width:50px;
+  height:64px;
+  border-radius:16px;
+  font-size:42px;
+}
+.lightbox-nav:hover{transform:translateY(-50%) scale(1.04)}
+.lightbox-prev{left:18px}
+.lightbox-next{right:18px}
+body.lightbox-open{overflow:hidden}
+
+@media(max-width:680px){
+  .gallery-lightbox{padding:70px 14px 24px}
+  .lightbox-content{width:100%}
+  .lightbox-content img{max-height:72vh;border-radius:14px}
+  .lightbox-nav{
+    top:auto;
+    bottom:18px;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    font-size:32px;
+    transform:none;
+  }
+  .lightbox-nav:hover{transform:scale(1.04)}
+  .lightbox-prev{left:calc(50% - 58px)}
+  .lightbox-next{right:calc(50% - 58px)}
+  .lightbox-caption{padding-bottom:52px;font-size:14px}
+}
