@@ -404,7 +404,7 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   .kelong-real-gallery img,.kelong-real-gallery figure:not(.kelong-real-main) img{height:330px}
 }
 
-.exp-kelong-real{background:linear-gradient(135deg,#0f766e,#173034);}
+.exp-kelong-real{background-image:url("https://scontent-ham3-1.xx.fbcdn.net/v/t39.30808-1/529397682_122094302420978473_1214882844453800069_n.jpg?stp=dst-jpg_tt6&cstp=mx607x1080&ctp=s607x1080&_nc_cat=100&ccb=1-7&_nc_sid=3ab345&_nc_ohc=_ljkK9JpPi8Q7kNvwFyKOmi&_nc_oc=AdpJIRRz_ncJOzTywza5WXZjKcH1i2gp5hODGsPT5VExBLibEAJClOXHMOo8brtUyHU&_nc_zt=24&_nc_ht=scontent-ham3-1.xx&_nc_gid=4RytgZ24aSwof50WdWQcpw&_nc_ss=79289&oh=00_AQM0jFFdRCZx3Bwc7S6cwPVE64NTE_AR05lRllPOvZfA_w&oe=6ABFCDE5");background-position:center;background-size:cover;}
 .kelong-compact-head{color:#fff}
 .kelong-compact-head p{color:#cbe2df;max-width:500px}
 .kelong-experience-grid{display:grid;grid-template-columns:1.45fr .55fr;gap:14px}
