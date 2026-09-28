@@ -437,3 +437,6 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   .kelong-experience-main img{height:350px}
   .kelong-experience-side figure img{min-height:280px;height:280px}
 }
+
+#kelongSummaryRow{border-top:1px dotted #d8e0de;margin-top:4px;padding-top:9px}
+#kelongFee{color:var(--teal)}
