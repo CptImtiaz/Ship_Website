@@ -33,7 +33,15 @@ const BOATS = {
 const EXPERIENCES = {
   boat: { name: "Private Boat Rental", basePrice: 100, perHour: 40 },
   fishing: { name: "Fishing Adventure", basePrice: 210, perHour: 40 },
-  kelong: { name: "Kelong Experience", basePrice: 350, perHour: 35 },
+  kelong: {
+    name: "Kelong Aladdin Experience",
+    pricingType: "fixed",
+    weekday: { hours12: 400, hours24: 600 },
+    weekendPublicHoliday: { hours12: 500, hours24: 800 },
+    capacity: 8,
+    returnBoatTransferIncluded: true,
+    location: "Pangkalan Jeti Teluk Nipah, Pulau Indah, Klang, Selangor"
+  },
   boathouse: { name: "Boathouse Stay", basePrice: 700, perHour: 20 }
 };
 
