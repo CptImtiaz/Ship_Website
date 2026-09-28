@@ -84,7 +84,7 @@ button{color:inherit}
 .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;font-size:14px;color:rgba(255,255,255,.82)}
 .hero-card{overflow:hidden;background:#fff;color:var(--ink);border-radius:25px;box-shadow:var(--shadow)}
 .hero-card-photo{height:185px;background-position:center;background-size:cover}
-.rantau-hero-photo{background-image:url("https://rantaumarine.com/wp-content/uploads/2025/01/21.webp")}
+.rantau-hero-photo{background-image:url("https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=900&q=85")}
 .hero-card-content{padding:25px}
 .hero-card-badge{display:inline-block;background:#fff1d6;color:#875800;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;margin-bottom:16px}
 .hero-card-content p{margin-bottom:18px}
