@@ -343,3 +343,21 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
 @media (max-width:960px){
   .pricing-layout,.pricing-examples{grid-template-columns:1fr}
 }
+
+.kelong-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn-kelong-outline{border:1px solid rgba(255,255,255,.38);color:#fff;background:transparent}
+.btn-kelong-outline:hover{background:rgba(255,255,255,.08)}
+.kelong-video-section{background:var(--cream-2)}
+.kelong-video-wrap{position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:24px;background:#000;box-shadow:var(--shadow)}
+.kelong-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.kelong-video-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.facebook-gallery-card{margin-top:24px;border-radius:20px;padding:24px 26px;background:linear-gradient(135deg,#173d6b,#1877f2);color:#fff;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.facebook-gallery-card span{font-size:10px;letter-spacing:.14em;font-weight:800;color:#dceaff}
+.facebook-gallery-card h3{margin:7px 0 5px}
+.facebook-gallery-card p{color:#dbe8fb}
+.facebook-gallery-card strong{white-space:nowrap}
+@media(max-width:680px){
+  .kelong-video-actions,.kelong-actions{flex-direction:column}
+  .facebook-gallery-card{display:block}
+  .facebook-gallery-card strong{display:block;margin-top:16px}
+}
