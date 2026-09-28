@@ -710,3 +710,230 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
     grid-template-columns:1fr;
   }
 }
+
+/* ============================================================
+   LOWER PAGE FLOW — HOW → PRICING → BOOKING → FAQ
+   ============================================================ */
+
+#how{
+  position:relative;
+  overflow:hidden;
+  background:#f4f1e9;
+  padding:100px 0 110px;
+}
+#how:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:rgba(15,118,110,.055);
+  right:-180px;
+  top:-210px;
+  pointer-events:none;
+}
+#how .section-head{
+  margin-bottom:42px;
+}
+#how .section-head h2{
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+}
+#how .steps-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+#how .step{
+  position:relative;
+  min-height:210px;
+  padding:26px 24px 24px;
+  border-radius:22px;
+  border:1px solid rgba(20,55,51,.09);
+  background:#fff;
+  box-shadow:0 12px 32px rgba(17,42,39,.055);
+}
+#how .step b{
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  margin-bottom:24px;
+  border-radius:13px;
+  background:var(--teal);
+  color:#fff;
+  font-size:12px;
+  letter-spacing:.08em;
+}
+#how .step h3{
+  margin-bottom:9px;
+}
+#how .step p{
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* Pricing acts as the premium bridge into booking */
+.pricing-section{
+  position:relative;
+  padding:110px 0;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(31,148,137,.15),transparent 31%),
+    linear-gradient(180deg,#0b2225 0%,#07181b 100%);
+  color:#fff;
+}
+.pricing-section .section-head{
+  margin-bottom:38px;
+}
+.pricing-section .section-head h2{
+  color:#fff;
+}
+.pricing-section .section-head>p{
+  color:#aebfc0;
+  max-width:570px;
+  line-height:1.75;
+}
+.pricing-section .eyebrow.dark{
+  color:#8fd8d0;
+}
+.pricing-section .pricing-layout{
+  gap:16px;
+}
+.pricing-section .pricing-block{
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:none;
+  backdrop-filter:blur(8px);
+}
+.pricing-section .pricing-block-head>span{
+  background:#fff;
+  color:#092124;
+}
+.pricing-section .pricing-block-head h3{
+  color:#fff;
+}
+.pricing-section .pricing-block-head p{
+  color:#93a9aa;
+}
+.pricing-section .price-list>div{
+  border-bottom-color:rgba(255,255,255,.08);
+  color:#d8e1e1;
+}
+.pricing-section .price-list strong{
+  color:#9fe1da;
+}
+.pricing-section .pricing-examples{
+  margin-top:22px;
+}
+.pricing-section .example-card{
+  border-radius:20px;
+  border:1px solid rgba(8,31,33,.06);
+  box-shadow:0 16px 34px rgba(0,0,0,.17);
+}
+.pricing-section .featured-example{
+  transform:translateY(-5px);
+  border:2px solid #62c7bd;
+}
+.pricing-section .pricing-note{
+  margin-top:22px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* Booking follows pricing directly as one visual journey */
+.booking-section{
+  position:relative;
+  padding:112px 0;
+  background:
+    linear-gradient(180deg,#07181b 0%,#081417 100%);
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.booking-section:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:min(1180px,calc(100% - 40px));
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,rgba(143,216,208,.4),transparent);
+}
+.booking-intro .eyebrow{
+  color:#8fd8d0;
+}
+.booking-intro h2{
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.02;
+}
+.booking-card{
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:0 28px 70px rgba(0,0,0,.28);
+}
+
+/* FAQ becomes the calm final section */
+.faq-section{
+  position:relative;
+  background:#f7f5ef;
+  padding:105px 0 115px;
+}
+.faq-section .faq-layout{
+  align-items:start;
+}
+.faq-intro{
+  position:sticky;
+  top:105px;
+}
+.faq-intro>p{
+  max-width:430px;
+  font-size:16px;
+  line-height:1.75;
+}
+.faq-item{
+  background:#fff;
+  border:1px solid rgba(20,55,51,.09);
+  border-radius:17px;
+  padding:20px 22px;
+  box-shadow:0 7px 20px rgba(17,42,39,.035);
+}
+.faq-item + .faq-item{
+  margin-top:4px;
+}
+.faq-item summary{
+  font-size:15px;
+}
+.faq-item[open]{
+  border-color:rgba(15,118,110,.23);
+  box-shadow:0 10px 28px rgba(15,118,110,.07);
+}
+.faq-item[open] summary{
+  color:var(--teal);
+}
+
+@media(max-width:960px){
+  #how .steps-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .pricing-section .featured-example{
+    transform:none;
+  }
+  .faq-intro{
+    position:static;
+  }
+}
+@media(max-width:680px){
+  #how,.pricing-section,.booking-section,.faq-section{
+    padding:76px 0;
+  }
+  #how .steps-grid{
+    grid-template-columns:1fr;
+  }
+  #how .step{
+    min-height:auto;
+  }
+  .pricing-section .section-head,
+  .booking-section .section-head{
+    margin-bottom:28px;
+  }
+}
