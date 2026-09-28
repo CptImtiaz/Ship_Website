@@ -1630,3 +1630,211 @@ body.lightbox-open{overflow:hidden}
     }
   }
 }
+
+/* ============================================================
+   MOBILE BOOKING — SHORT 3-STEP FLOW
+   ============================================================ */
+.mobile-booking-progress,
+.mobile-step-actions{
+  display:none;
+}
+
+@media(max-width:680px){
+  /* Reduce section-to-section whitespace further */
+  .section,
+  #how,
+  .pricing-section,
+  .booking-section,
+  .faq-section,
+  .boarding-section{
+    padding-top:40px!important;
+    padding-bottom:40px!important;
+  }
+
+  #how{padding-bottom:36px!important}
+  .pricing-section{padding-top:36px!important;padding-bottom:38px!important}
+  .booking-section{padding-top:42px!important;padding-bottom:42px!important}
+  .faq-section{padding-top:38px!important}
+
+  /* Booking intro becomes compact */
+  .booking-intro{
+    margin-bottom:0;
+  }
+  .booking-intro h2{
+    font-size:34px!important;
+    margin-bottom:8px;
+  }
+  .booking-intro>p{
+    font-size:13px!important;
+    line-height:1.55;
+    margin-bottom:0;
+  }
+  .booking-side-photo,
+  .booking-points{
+    display:none!important;
+  }
+  .booking-grid{
+    gap:16px!important;
+  }
+
+  .booking-card{
+    padding:15px!important;
+    border-radius:18px!important;
+  }
+
+  .form-title{
+    margin-bottom:14px;
+  }
+  .form-title h3{
+    font-size:20px;
+    margin-top:4px;
+  }
+
+  /* progress */
+  .mobile-booking-progress{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:16px;
+    padding:3px 1px 12px;
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-progress-step{
+    appearance:none;
+    border:0;
+    background:transparent;
+    color:#8a9998;
+    padding:0;
+    min-width:54px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:10px;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .mobile-progress-step span{
+    width:24px;
+    height:24px;
+    border-radius:8px;
+    display:grid;
+    place-items:center;
+    background:#edf2f0;
+    color:#70807e;
+    font-size:10px;
+  }
+  .mobile-progress-step.is-active{
+    color:var(--teal-dark);
+  }
+  .mobile-progress-step.is-active span,
+  .mobile-progress-step.is-done span{
+    background:var(--teal);
+    color:#fff;
+  }
+  .mobile-progress-line{
+    flex:1;
+    height:1px;
+    background:#dbe4e1;
+  }
+
+  /* Only show current step content */
+  .booking-card.mobile-booking-step-1 .mobile-step-item:not(.mobile-step-1-item),
+  .booking-card.mobile-booking-step-2 .mobile-step-item:not(.mobile-step-2-item),
+  .booking-card.mobile-booking-step-3 .mobile-step-item:not(.mobile-step-3-item){
+    display:none!important;
+  }
+
+  .booking-card.mobile-booking-step-1 .mobile-step-1-action,
+  .booking-card.mobile-booking-step-2 .mobile-step-2-action,
+  .booking-card.mobile-booking-step-3 .mobile-step-3-action{
+    display:flex;
+  }
+
+  .mobile-step-actions{
+    align-items:center;
+    gap:10px;
+    margin-top:14px;
+  }
+  .mobile-step-actions .btn{
+    flex:1;
+    min-height:46px;
+    border-radius:12px;
+    padding:12px 14px;
+  }
+  .mobile-back-btn{
+    min-height:44px;
+    padding:10px 8px;
+    border:0;
+    background:transparent;
+    color:var(--teal-dark);
+    font-weight:800;
+    cursor:pointer;
+  }
+
+  /* Current form step stays concise */
+  .form-grid,
+  .customer-grid{
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  label{
+    gap:5px;
+    font-size:11px!important;
+  }
+  input,
+  select{
+    min-height:44px;
+    padding:10px 11px!important;
+    border-radius:10px!important;
+    font-size:16px;
+  }
+
+  /* options */
+  .addons{
+    margin:12px 0 0!important;
+    padding:12px 0 0!important;
+    border-bottom:0!important;
+  }
+  .addons-head{
+    margin-bottom:4px;
+  }
+  .check{
+    min-height:40px;
+    padding:5px 0!important;
+    font-size:11.5px!important;
+  }
+
+  /* review */
+  .customer-grid{
+    margin-top:0!important;
+  }
+  .summary{
+    margin:12px 0!important;
+    padding:12px!important;
+    border-radius:13px!important;
+  }
+  .summary>div{
+    padding:4px 0!important;
+    font-size:12px;
+  }
+  .summary .total{
+    font-size:16px!important;
+    padding-top:10px!important;
+  }
+  .summary .total strong{
+    font-size:20px;
+  }
+  .payment-note{
+    font-size:10px!important;
+    margin-top:7px!important;
+  }
+  #payBtn{
+    min-height:48px;
+    border-radius:12px;
+  }
+
+  /* Keep form above bottom dock */
+  #book{
+    scroll-margin-top:64px;
+  }
+}
