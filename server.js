@@ -23,11 +23,11 @@ function bookingId() {
 // BOAT & PRICING DATA
 // ============================================================
 const BOATS = {
-  fishing: { name: "Fishing Boat", category: "Fishing Boats" },
-  speedboat: { name: "Speedboat", category: "Speedboats" },
-  recreational: { name: "Recreational Boat", category: "Recreational Boats" },
-  luxury: { name: "Luxury Yacht", category: "Luxury Yachts" },
-  commercial: { name: "Commercial Vessel", category: "Commercial Vessels" }
+  fishing: { name: "Fishing Boat", category: "Fishing Boats", surcharge: 0 },
+  speedboat: { name: "Speedboat", category: "Speedboats", surcharge: 100 },
+  recreational: { name: "Recreational Boat", category: "Recreational Boats", surcharge: 80 },
+  luxury: { name: "Luxury Yacht", category: "Luxury Yachts", surcharge: 350 },
+  commercial: { name: "Commercial Vessel", category: "Commercial Vessels", surcharge: 150 }
 };
 
 const EXPERIENCES = {
