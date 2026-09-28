@@ -1,0 +1,14 @@
+{
+  "name": "seaescape-booking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Boat rental, fishing, kelong and boathouse booking website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
