@@ -467,14 +467,22 @@
           </div>
         </div>
 
-        <form class="booking-card" id="bookingForm">
+        <form class="booking-card mobile-booking-step-1" id="bookingForm">
+          <div class="mobile-booking-progress" aria-label="Booking progress">
+            <button type="button" class="mobile-progress-step is-active" data-mobile-step-jump="1"><span>1</span>Trip</button>
+            <span class="mobile-progress-line"></span>
+            <button type="button" class="mobile-progress-step" data-mobile-step-jump="2"><span>2</span>Options</button>
+            <span class="mobile-progress-line"></span>
+            <button type="button" class="mobile-progress-step" data-mobile-step-jump="3"><span>3</span>Review</button>
+          </div>
+
           <div class="form-title">
             <span>YOUR TRIP</span>
             <h3>Reservation details</h3>
           </div>
 
           <div class="form-grid">
-            <label>
+            <label class="mobile-step-item mobile-step-1-item">
               Experience
               <select id="package" required>
                 <option value="boat">Private Boat Rental</option>
@@ -484,12 +492,12 @@
               </select>
             </label>
 
-            <label>
+            <label class="mobile-step-item mobile-step-1-item">
               Date
               <input id="date" type="date" required />
             </label>
 
-            <label id="kelongRateTypeField" class="kelong-booking-field">
+            <label id="kelongRateTypeField" class="kelong-booking-field mobile-step-item mobile-step-2-item">
               Kelong
               <select id="kelongRateType">
                 <option value="na">N/A — No kelong</option>
@@ -498,7 +506,7 @@
               </select>
             </label>
 
-            <label id="kelongDurationField" class="kelong-booking-field" hidden>
+            <label id="kelongDurationField" class="kelong-booking-field mobile-step-item mobile-step-2-item" hidden>
               Kelong duration
               <select id="kelongDuration">
                 <option value="12">12 hours</option>
@@ -506,7 +514,7 @@
               </select>
             </label>
 
-            <label>
+            <label class="mobile-step-item mobile-step-2-item">
               Start time
               <select id="time" required>
                 <option>08:00</option>
@@ -518,7 +526,7 @@
               </select>
             </label>
 
-            <label>
+            <label class="mobile-step-item mobile-step-2-item">
               Duration
               <select id="duration" required>
                 <option value="2">2 hours</option>
@@ -528,12 +536,12 @@
               </select>
             </label>
 
-            <label>
+            <label class="mobile-step-item mobile-step-1-item">
               Guests
               <input id="guests" type="number" min="1" max="12" value="4" required />
             </label>
 
-            <label>
+            <label class="mobile-step-item mobile-step-2-item">
               Boat
               <select id="boat">
                 <option value="fishing">Fishing Boat</option>
@@ -545,7 +553,11 @@
             </label>
           </div>
 
-          <div class="addons">
+          <div class="mobile-step-actions mobile-step-1-action">
+            <button type="button" class="btn btn-primary full" id="mobileBookingNext1">Continue to options</button>
+          </div>
+
+          <div class="addons mobile-step-item mobile-step-2-item">
             <div class="addons-head">
               <h4>Add-ons</h4>
               <span>Optional</span>
@@ -556,13 +568,18 @@
             <label class="check"><input type="checkbox" value="50" data-name="Ice box + bait" /> <span class="check-name">🧊 Ice box + bait</span><span>+ RM 50</span></label>
           </div>
 
-          <div class="customer-grid">
+          <div class="mobile-step-actions mobile-step-2-action">
+            <button type="button" class="mobile-back-btn" id="mobileBookingBack2">← Back</button>
+            <button type="button" class="btn btn-primary" id="mobileBookingNext2">Review booking</button>
+          </div>
+
+          <div class="customer-grid mobile-step-item mobile-step-3-item">
             <label>Full name<input id="name" type="text" placeholder="Your full name" required /></label>
             <label>Phone<input id="phone" type="tel" placeholder="+60..." required /></label>
             <label class="wide">Email<input id="email" type="email" placeholder="you@email.com" required /></label>
           </div>
 
-          <div class="summary">
+          <div class="summary mobile-step-item mobile-step-3-item">
             <div class="summary-title"><span>PRICE BREAKDOWN</span><b>MYR</b></div>
             <div><span>Experience base fee</span><b id="baseFee">RM 210</b></div>
             <div><span id="hourlyLabel">6 hours × RM 40</span><b id="hourlyFee">RM 240</b></div>
@@ -573,9 +590,12 @@
             <div class="total"><span>Total payable</span><strong id="grandTotal">RM 450</strong></div>
           </div>
 
-          <button class="btn btn-primary btn-lg full" id="payBtn" type="submit">Continue to secure payment</button>
-          <p class="payment-note">Your payment gateway opens after the booking details are validated.</p>
-          <div id="formMessage" class="form-message" aria-live="polite"></div>
+          <div class="mobile-step-actions mobile-step-3-action">
+            <button type="button" class="mobile-back-btn" id="mobileBookingBack3">← Back</button>
+          </div>
+          <button class="btn btn-primary btn-lg full mobile-step-item mobile-step-3-item" id="payBtn" type="submit">Continue to secure payment</button>
+          <p class="payment-note mobile-step-item mobile-step-3-item">Your payment gateway opens after the booking details are validated.</p>
+          <div id="formMessage" class="form-message mobile-step-item mobile-step-3-item" aria-live="polite"></div>
         </form>
       </div>
     </section>
