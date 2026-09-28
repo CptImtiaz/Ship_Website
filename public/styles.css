@@ -1406,3 +1406,227 @@ body.lightbox-open{overflow:hidden}
   /* lightbox mobile polish */
   .gallery-lightbox{z-index:10000}
 }
+
+/* ============================================================
+   MOBILE POLISH — FIX OVERFLOW, SPACING & BOTTOM NAV
+   Desktop remains unchanged
+   ============================================================ */
+@media(max-width:680px){
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    padding-bottom:76px;
+  }
+
+  /* Remove decorative circles/overflow on small screens */
+  #how:before,
+  .pricing-section:before{
+    display:none!important;
+    content:none!important;
+  }
+
+  /* Slightly tighter section rhythm */
+  .section,
+  #how,
+  .pricing-section,
+  .faq-section,
+  .boarding-section{
+    padding-top:48px!important;
+    padding-bottom:48px!important;
+  }
+
+  .booking-section{
+    padding-top:54px!important;
+    padding-bottom:54px!important;
+  }
+
+  #how{
+    padding-bottom:42px!important;
+  }
+
+  .pricing-section{
+    padding-top:44px!important;
+  }
+
+  .section-head{
+    margin-bottom:18px!important;
+  }
+
+  .section-head h2{
+    font-size:28px;
+    line-height:1.08;
+  }
+
+  .section-head>p{
+    margin-top:10px!important;
+  }
+
+  /* Keep horizontal scrollers inside viewport instead of shifting page */
+  .experience-grid,
+  .gallery-showcase,
+  .boat-grid-five,
+  .pricing-section .pricing-layout,
+  .pricing-section .pricing-examples{
+    width:100%;
+    max-width:100%;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:0!important;
+    padding-right:12px!important;
+    box-sizing:border-box;
+    overscroll-behavior-inline:contain;
+  }
+
+  .experience-card{
+    flex-basis:min(82vw,330px)!important;
+  }
+
+  .gallery-card:nth-child(n){
+    flex-basis:min(84vw,340px)!important;
+  }
+
+  .boat-grid-five .boat-card{
+    flex-basis:min(84vw,340px)!important;
+  }
+
+  .pricing-section .pricing-block{
+    flex-basis:min(87vw,355px)!important;
+  }
+
+  .pricing-section .example-card{
+    flex-basis:min(78vw,320px)!important;
+  }
+
+  /* Compact How It Works */
+  #how .steps-grid{
+    gap:8px;
+  }
+
+  #how .step{
+    padding:14px 12px;
+    border-radius:15px;
+  }
+
+  #how .step b{
+    width:32px;
+    height:32px;
+    margin-bottom:10px;
+  }
+
+  #how .step h3{
+    font-size:16px;
+  }
+
+  #how .step p{
+    font-size:11.5px;
+    line-height:1.5;
+  }
+
+  /* Compact pricing intro/cards */
+  .pricing-section .pricing-block{
+    padding:17px;
+    border-radius:18px;
+  }
+
+  .pricing-block-head{
+    padding-bottom:13px!important;
+  }
+
+  .pricing-block-head>span{
+    width:34px!important;
+    height:34px!important;
+  }
+
+  .price-list>div{
+    padding:11px 0!important;
+    font-size:12.5px!important;
+  }
+
+  .pricing-section .example-card{
+    padding:16px;
+  }
+
+  .pricing-note{
+    margin-top:14px!important;
+    padding:14px 15px!important;
+  }
+
+  /* Header a little tighter */
+  .nav-wrap{
+    height:62px;
+  }
+
+  .brand{
+    font-size:22px;
+  }
+
+  .brand-mark{
+    width:38px;
+    height:38px;
+  }
+
+  .nav-cta{
+    padding:10px 14px;
+    border-radius:13px;
+    font-size:13px;
+  }
+
+  /* Cleaner, slimmer app-style bottom navigation */
+  .mobile-dock{
+    left:12px;
+    right:12px;
+    bottom:calc(8px + env(safe-area-inset-bottom));
+    min-height:58px;
+    padding:6px 7px;
+    border-radius:18px;
+    background:rgba(8,26,29,.96);
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 10px 28px rgba(0,0,0,.24);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    align-items:center;
+  }
+
+  .mobile-dock a{
+    min-height:46px;
+    gap:3px;
+    border-radius:12px;
+    color:#aebcbd;
+  }
+
+  .mobile-dock a span{
+    font-size:16px;
+    line-height:1;
+  }
+
+  .mobile-dock a small{
+    font-size:9px;
+    line-height:1;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
+
+  .mobile-dock-book{
+    min-height:48px!important;
+    transform:none!important;
+    background:var(--teal)!important;
+    color:#fff!important;
+    box-shadow:0 6px 16px rgba(15,118,110,.28);
+  }
+
+  .mobile-dock-book span{
+    font-size:18px!important;
+  }
+
+  /* iPhone safe area / Safari address-bar friendliness */
+  @supports(padding:max(0px)){
+    body{
+      padding-bottom:max(76px,calc(68px + env(safe-area-inset-bottom)));
+    }
+  }
+}
