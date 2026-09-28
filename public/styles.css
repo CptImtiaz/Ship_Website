@@ -506,18 +506,17 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   }
 }
 
-/* Curated Rantau Marine gallery - fixed balanced layout */
+/* Curated Rantau Marine gallery - 6 image layout */
 .gallery-section{background:#f7f5ef}
 .gallery-head{align-items:end;margin-bottom:28px}
-.gallery-head p{max-width:520px}
+.gallery-head>div{max-width:720px}
 
 .gallery-showcase{
   display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
-  grid-template-rows:250px 250px 220px;
+  grid-template-rows:270px 230px 230px;
   gap:14px;
 }
-
 .gallery-card{
   position:relative;
   margin:0;
@@ -527,14 +526,12 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   box-shadow:0 10px 26px rgba(11,35,33,.08);
   min-width:0;
 }
-
 .gallery-card:nth-child(1){grid-column:1 / 8;grid-row:1 / 3}
 .gallery-card:nth-child(2){grid-column:8 / 13;grid-row:1}
 .gallery-card:nth-child(3){grid-column:8 / 10;grid-row:2}
 .gallery-card:nth-child(4){grid-column:10 / 13;grid-row:2}
-.gallery-card:nth-child(5){grid-column:1 / 6;grid-row:3}
-.gallery-card:nth-child(6){grid-column:6 / 9;grid-row:3}
-.gallery-card:nth-child(7){grid-column:9 / 13;grid-row:3}
+.gallery-card:nth-child(5){grid-column:1 / 8;grid-row:3}
+.gallery-card:nth-child(6){grid-column:8 / 13;grid-row:3}
 
 .gallery-card img{
   width:100%;
@@ -543,20 +540,14 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   display:block;
   transition:transform .45s ease,filter .45s ease;
 }
-
-.gallery-card:hover img{
-  transform:scale(1.035);
-  filter:saturate(1.04);
-}
-
+.gallery-card:hover img{transform:scale(1.035);filter:saturate(1.05)}
 .gallery-card:after{
   content:"";
   position:absolute;
   inset:50% 0 0;
-  background:linear-gradient(transparent,rgba(3,20,21,.76));
+  background:linear-gradient(transparent,rgba(3,20,21,.78));
   pointer-events:none;
 }
-
 .gallery-card figcaption{
   position:absolute;
   z-index:2;
@@ -565,7 +556,6 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   bottom:16px;
   color:#fff;
 }
-
 .gallery-card figcaption span{
   display:block;
   font-size:10px;
@@ -574,13 +564,19 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   opacity:.82;
   margin-bottom:4px;
 }
-
 .gallery-card figcaption strong{font-size:18px}
-.gallery-card:nth-child(1) figcaption strong{font-size:25px}
-.gallery-card:nth-child(1) img{object-position:center 48%}
-.gallery-card:nth-child(2) img{object-position:center 45%}
-.gallery-card:nth-child(5) img{object-position:center 52%}
-.gallery-card:nth-child(7) img{object-position:center 32%}
+.gallery-card:nth-child(1) figcaption strong{font-size:26px}
+.gallery-card:nth-child(1) img{object-position:center center}
+.gallery-card:nth-child(2) img{object-position:center center}
+.gallery-card:nth-child(5) img{object-position:center center}
+
+.boarding-image img{
+  width:100%;
+  height:100%;
+  min-height:460px;
+  object-fit:cover;
+  object-position:center;
+}
 
 @media(max-width:980px){
   .gallery-showcase{
@@ -592,21 +588,18 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
   .gallery-card:nth-child(3){grid-column:2;grid-row:2}
   .gallery-card:nth-child(4){grid-column:1;grid-row:3}
   .gallery-card:nth-child(5){grid-column:2;grid-row:3}
-  .gallery-card:nth-child(6){grid-column:1;grid-row:4}
-  .gallery-card:nth-child(7){grid-column:2;grid-row:4}
+  .gallery-card:nth-child(6){grid-column:1 / 3;grid-row:4}
 }
-
 @media(max-width:640px){
-  .gallery-head{display:block}
-  .gallery-head p{margin-top:10px}
   .gallery-showcase{
     grid-template-columns:1fr;
     grid-template-rows:none;
-    grid-auto-rows:240px;
+    grid-auto-rows:245px;
   }
   .gallery-card:nth-child(n){
     grid-column:1;
     grid-row:auto;
   }
-  .gallery-card:nth-child(1){min-height:300px}
+  .gallery-card:nth-child(1){min-height:310px}
+  .boarding-image img{min-height:320px}
 }
