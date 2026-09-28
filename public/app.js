@@ -113,19 +113,30 @@ function calculatePrice() {
 
 function updatePackageFields() {
   const isKelong = packageSelect.value === "kelong";
-  kelongRateTypeField.hidden = !isKelong;
-
   const current = durationSelect.value;
-  durationSelect.innerHTML = isKelong
-    ? '<option value="12">12 hours</option><option value="24">24 hours</option>'
-    : '<option value="2">2 hours</option><option value="4">4 hours</option><option value="6">6 hours</option><option value="8">8 hours</option>';
 
-  if (!isKelong && ["2","4","6","8"].includes(current)) {
-    durationSelect.value = current;
-  } else if (isKelong && ["12","24"].includes(current)) {
-    durationSelect.value = current;
+  if (isKelong) {
+    kelongRateType.disabled = false;
+    kelongRateType.innerHTML =
+      '<option value="weekday">Weekday</option>' +
+      '<option value="weekend">Weekend / Public Holiday</option>';
+
+    durationSelect.innerHTML =
+      '<option value="12">12 hours</option>' +
+      '<option value="24">24 hours</option>';
+
+    durationSelect.value = ["12","24"].includes(current) ? current : "12";
   } else {
-    durationSelect.value = isKelong ? "12" : "6";
+    kelongRateType.disabled = true;
+    kelongRateType.innerHTML = '<option value="na">N/A — No kelong</option>';
+
+    durationSelect.innerHTML =
+      '<option value="2">2 hours</option>' +
+      '<option value="4">4 hours</option>' +
+      '<option value="6">6 hours</option>' +
+      '<option value="8">8 hours</option>';
+
+    durationSelect.value = ["2","4","6","8"].includes(current) ? current : "6";
   }
 
   calculatePrice();
@@ -243,7 +254,7 @@ form.addEventListener("submit", async (e) => {
     date: dateInput.value,
     time: document.getElementById("time").value,
     durationHours: Number(durationSelect.value),
-    kelongRateType: packageSelect.value === "kelong" ? kelongRateType.value : null,
+    kelongRateType: packageSelect.value === "kelong" ? kelongRateType.value : "N/A",
     guests: Number(document.getElementById("guests").value),
     boat: boatSelect.value,
     addons: selectedAddons,
