@@ -505,3 +505,77 @@ footer{background:#091417;color:#fff;padding:60px 0 20px}
     grid-column:auto;
   }
 }
+
+/* Curated Rantau Marine gallery */
+.gallery-section{background:#f7f5ef}
+.gallery-head{align-items:end}
+.gallery-showcase{
+  display:grid;
+  grid-template-columns:1.35fr .8fr .8fr;
+  grid-template-rows:260px 260px 220px;
+  gap:14px;
+}
+.gallery-card{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border-radius:22px;
+  background:#dfe6e3;
+  box-shadow:0 12px 30px rgba(11,35,33,.08);
+}
+.gallery-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .55s ease,filter .55s ease;
+}
+.gallery-card:hover img{transform:scale(1.035);filter:saturate(1.05)}
+.gallery-card:after{
+  content:"";
+  position:absolute;
+  inset:48% 0 0;
+  background:linear-gradient(transparent,rgba(3,20,21,.75));
+  pointer-events:none;
+}
+.gallery-card figcaption{
+  position:absolute;
+  z-index:2;
+  left:18px;
+  right:18px;
+  bottom:16px;
+  color:#fff;
+}
+.gallery-card figcaption span{
+  display:block;
+  font-size:10px;
+  letter-spacing:.14em;
+  font-weight:800;
+  opacity:.78;
+  margin-bottom:4px;
+}
+.gallery-card figcaption strong{font-size:18px}
+.gallery-hero{grid-row:span 2}
+.gallery-hero figcaption strong{font-size:25px}
+.gallery-portrait{grid-row:span 2}
+.gallery-wide{grid-column:span 2}
+.gallery-kelong img{object-position:center 35%}
+
+@media(max-width:980px){
+  .gallery-showcase{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:300px 230px 230px 230px;
+  }
+  .gallery-hero{grid-row:span 1;grid-column:span 2}
+  .gallery-portrait{grid-row:span 1}
+  .gallery-wide{grid-column:span 2}
+}
+@media(max-width:640px){
+  .gallery-showcase{
+    grid-template-columns:1fr;
+    grid-template-rows:none;
+    grid-auto-rows:250px;
+  }
+  .gallery-hero,.gallery-wide{grid-column:auto}
+  .gallery-portrait{grid-row:auto}
+}
