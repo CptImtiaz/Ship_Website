@@ -22,6 +22,7 @@
         <a href="#experiences">Experiences</a>
         <a href="#gallery">Gallery</a>
         <a href="#boats">Boats</a>
+        <a href="#pricing">Pricing</a>
         <a href="#boarding">Boarding</a>
         <a href="#kelong">Kelong</a>
         <a href="#faq">FAQ</a>
@@ -342,6 +343,103 @@
       </div>
     </section>
 
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">FULL PRICE BREAKDOWN</span>
+            <h2>Know exactly what you pay.</h2>
+          </div>
+          <p>The prices below are the current SeaEscape website pricing structure. Boat images/types come from Rantau Marine, but these rental prices are your website prices and can be changed anytime.</p>
+        </div>
+
+        <div class="pricing-layout">
+          <div class="pricing-block">
+            <div class="pricing-block-head">
+              <span>01</span>
+              <div>
+                <h3>Experience charge</h3>
+                <p>Base fee + hourly rate</p>
+              </div>
+            </div>
+            <div class="price-list">
+              <div><span>Private Boat Rental</span><strong>RM 100 + RM 40/hour</strong></div>
+              <div><span>Fishing Adventure</span><strong>RM 210 + RM 40/hour</strong></div>
+              <div><span>Kelong Experience</span><strong>RM 350 + RM 35/hour</strong></div>
+              <div><span>Boathouse Stay</span><strong>RM 700 + RM 20/hour</strong></div>
+            </div>
+          </div>
+
+          <div class="pricing-block">
+            <div class="pricing-block-head">
+              <span>02</span>
+              <div>
+                <h3>Boat type charge</h3>
+                <p>Added on top of the experience price</p>
+              </div>
+            </div>
+            <div class="price-list">
+              <div><span>Fishing Boat</span><strong>Included</strong></div>
+              <div><span>Speedboat</span><strong>+ RM 100</strong></div>
+              <div><span>Recreational Boat</span><strong>+ RM 80</strong></div>
+              <div><span>Luxury Yacht</span><strong>+ RM 350</strong></div>
+              <div><span>Commercial Vessel</span><strong>+ RM 150</strong></div>
+            </div>
+          </div>
+
+          <div class="pricing-block">
+            <div class="pricing-block-head">
+              <span>03</span>
+              <div>
+                <h3>Add-ons</h3>
+                <p>Optional extras</p>
+              </div>
+            </div>
+            <div class="price-list">
+              <div><span>🎣 Fishing equipment</span><strong>+ RM 80</strong></div>
+              <div><span>🍖 BBQ package</span><strong>+ RM 60</strong></div>
+              <div><span>🥤 Drinks package</span><strong>+ RM 40</strong></div>
+              <div><span>🧊 Ice box + bait</span><strong>+ RM 50</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-examples">
+          <div class="example-card">
+            <span>EXAMPLE 1</span>
+            <h3>2-hour Private Boat</h3>
+            <div><span>Base</span><b>RM 100</b></div>
+            <div><span>2 × RM 40/hour</span><b>RM 80</b></div>
+            <div><span>Fishing Boat</span><b>RM 0</b></div>
+            <div class="example-total"><span>Total</span><strong>RM 180</strong></div>
+          </div>
+
+          <div class="example-card featured-example">
+            <span>EXAMPLE 2</span>
+            <h3>6-hour Fishing Adventure</h3>
+            <div><span>Base</span><b>RM 210</b></div>
+            <div><span>6 × RM 40/hour</span><b>RM 240</b></div>
+            <div><span>Fishing Boat</span><b>RM 0</b></div>
+            <div class="example-total"><span>Total</span><strong>RM 450</strong></div>
+          </div>
+
+          <div class="example-card">
+            <span>EXAMPLE 3</span>
+            <h3>6-hour Fishing + Speedboat</h3>
+            <div><span>Fishing trip</span><b>RM 450</b></div>
+            <div><span>Speedboat upgrade</span><b>RM 100</b></div>
+            <div><span>Fishing equipment</span><b>RM 80</b></div>
+            <div class="example-total"><span>Total</span><strong>RM 630</strong></div>
+          </div>
+        </div>
+
+        <div class="pricing-note">
+          <strong>How the total is calculated:</strong>
+          <span>Experience base fee + hourly charge + selected boat-type charge + selected add-ons = final checkout total.</span>
+        </div>
+      </div>
+    </section>
+
     <section class="section package-section" id="packages">
       <div class="container">
         <div class="section-head centered">
@@ -538,9 +636,13 @@
           </div>
 
           <div class="summary">
-            <div><span>Trip subtotal</span><b id="tripSubtotal">RM 450</b></div>
+            <div class="summary-title"><span>PRICE BREAKDOWN</span><b>MYR</b></div>
+            <div><span>Experience base fee</span><b id="baseFee">RM 210</b></div>
+            <div><span id="hourlyLabel">6 hours × RM 40</span><b id="hourlyFee">RM 240</b></div>
+            <div><span id="boatLabel">Fishing Boat</span><b id="boatFee">RM 0</b></div>
             <div><span>Add-ons</span><b id="addonTotal">RM 0</b></div>
-            <div class="total"><span>Total</span><strong id="grandTotal">RM 450</strong></div>
+            <div class="subtotal"><span>Trip subtotal</span><b id="tripSubtotal">RM 450</b></div>
+            <div class="total"><span>Total payable</span><strong id="grandTotal">RM 450</strong></div>
           </div>
 
           <button class="btn btn-primary btn-lg full" id="payBtn" type="submit">Continue to secure payment</button>
