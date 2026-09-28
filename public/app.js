@@ -571,7 +571,7 @@ async function getPricingInfo() {
 })();
 
 
-/* Mobile 3-step booking flow */
+/* 3-step booking flow for desktop and mobile */
 (() => {
   const form = document.getElementById('bookingForm');
   if (!form) return;
@@ -584,10 +584,6 @@ async function getPricingInfo() {
 
   let currentStep = 1;
 
-  function isMobile() {
-    return window.matchMedia('(max-width: 680px)').matches;
-  }
-
   function setStep(step) {
     currentStep = Math.max(1, Math.min(3, step));
     form.classList.remove('mobile-booking-step-1', 'mobile-booking-step-2', 'mobile-booking-step-3');
@@ -599,7 +595,7 @@ async function getPricingInfo() {
       button.classList.toggle('is-done', buttonStep < currentStep);
     });
 
-    if (isMobile()) {
+    if (window.matchMedia('(max-width: 680px)').matches) {
       const top = form.getBoundingClientRect().top + window.scrollY - 78;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -628,7 +624,6 @@ async function getPricingInfo() {
 
   progressButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      if (!isMobile()) return;
       const target = Number(button.dataset.mobileStepJump);
       if (target === 1) return setStep(1);
       if (target === 2 && validateStep1()) return setStep(2);
@@ -636,13 +631,5 @@ async function getPricingInfo() {
     });
   });
 
-  window.addEventListener('resize', () => {
-    if (!isMobile()) {
-      form.classList.remove('mobile-booking-step-1', 'mobile-booking-step-2', 'mobile-booking-step-3');
-    } else if (![1,2,3].includes(currentStep)) {
-      setStep(1);
-    } else {
-      form.classList.add('mobile-booking-step-' + currentStep);
-    }
-  });
+  setStep(1);
 })();
