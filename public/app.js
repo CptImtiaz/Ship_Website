@@ -20,6 +20,10 @@ const dateInput = document.getElementById("date");
 const payBtn = document.getElementById("payBtn");
 const kelongRateTypeField = document.getElementById("kelongRateTypeField");
 const kelongRateType = document.getElementById("kelongRateType");
+const kelongDurationField = document.getElementById("kelongDurationField");
+const kelongDuration = document.getElementById("kelongDuration");
+const kelongSummaryLabel = document.getElementById("kelongSummaryLabel");
+const kelongFee = document.getElementById("kelongFee");
 
 // ============================================================
 // PRICING DATA
@@ -64,27 +68,48 @@ function calculatePrice() {
   const pkg = packageSelect.value;
   const hours = Number(durationSelect.value);
   const boat = boatSelect.value;
+  const kelongType = kelongRateType.value;
+  const kelongHours = Number(kelongDuration.value || 12);
 
   let experienceBase = 0;
   let hourlyCharge = 0;
   let boatCharge = 0;
-  let basePrice = 0;
+  let mainTripPrice = 0;
+  let kelongCharge = 0;
 
   if (pkg === "kelong") {
-    const rateType = kelongRateType.value;
-    basePrice = KELONG_RATES[rateType][hours] || 0;
-    experienceBase = basePrice;
+    // Kelong Experience is itself the main product.
+    const requiredType = kelongType === "na" ? "weekday" : kelongType;
+    if (kelongRateType.value === "na") {
+      kelongRateType.value = requiredType;
+    }
 
-    baseFee.textContent = money(basePrice);
-    hourlyLabel.textContent = `${rateType === "weekend" ? "Weekend / Public Holiday" : "Weekday"} • ${hours} hours`;
+    kelongCharge = KELONG_RATES[requiredType][hours] || 0;
+    experienceBase = kelongCharge;
+    mainTripPrice = kelongCharge;
+
+    baseFee.textContent = money(kelongCharge);
+    hourlyLabel.textContent = `${requiredType === "weekend" ? "Weekend / Public Holiday" : "Weekday"} • ${hours} hours`;
     hourlyFee.textContent = "Fixed rate";
     boatLabel.textContent = "Return boat transfer";
     boatFee.textContent = "Included";
+    kelongSummaryLabel.textContent = "Kelong Aladdin";
+    kelongFee.textContent = "Included as main experience";
   } else {
     experienceBase = PRICING[pkg].base;
     hourlyCharge = PRICING[pkg].perHour * hours;
     boatCharge = BOAT_SURCHARGE[boat];
-    basePrice = experienceBase + hourlyCharge + boatCharge;
+    mainTripPrice = experienceBase + hourlyCharge + boatCharge;
+
+    if (kelongType === "weekday" || kelongType === "weekend") {
+      kelongCharge = KELONG_RATES[kelongType][kelongHours] || 0;
+      kelongSummaryLabel.textContent =
+        `Kelong • ${kelongType === "weekend" ? "Weekend / Public Holiday" : "Weekday"} • ${kelongHours}h`;
+      kelongFee.textContent = money(kelongCharge);
+    } else {
+      kelongSummaryLabel.textContent = "Kelong";
+      kelongFee.textContent = "N/A";
+    }
 
     baseFee.textContent = money(experienceBase);
     hourlyLabel.textContent = `${hours} hours × RM ${PRICING[pkg].perHour}`;
@@ -97,38 +122,56 @@ function calculatePrice() {
     .filter(checkbox => checkbox.checked)
     .reduce((sum, checkbox) => sum + Number(checkbox.value), 0);
 
-  tripSubtotal.textContent = money(basePrice);
+  const subtotal = mainTripPrice + (pkg === "kelong" ? 0 : kelongCharge);
+
+  tripSubtotal.textContent = money(subtotal);
   addonTotal.textContent = money(addonsPrice);
-  grandTotal.textContent = money(basePrice + addonsPrice);
+  grandTotal.textContent = money(subtotal + addonsPrice);
 
   return {
     experienceBase,
     hourlyCharge,
     boatCharge,
-    base: basePrice,
+    kelongCharge,
+    base: subtotal,
     addons: addonsPrice,
-    total: basePrice + addonsPrice
+    total: subtotal + addonsPrice
   };
 }
 
 function updatePackageFields() {
-  const isKelong = packageSelect.value === "kelong";
-  const current = durationSelect.value;
+  const isKelongExperience = packageSelect.value === "kelong";
+  const currentDuration = durationSelect.value;
+  const currentKelongType = kelongRateType.value;
 
-  if (isKelong) {
-    kelongRateType.disabled = false;
+  if (isKelongExperience) {
+    // Kelong Experience must be weekday or weekend; N/A is not allowed.
     kelongRateType.innerHTML =
       '<option value="weekday">Weekday</option>' +
       '<option value="weekend">Weekend / Public Holiday</option>';
+
+    kelongRateType.value =
+      currentKelongType === "weekend" ? "weekend" : "weekday";
 
     durationSelect.innerHTML =
       '<option value="12">12 hours</option>' +
       '<option value="24">24 hours</option>';
 
-    durationSelect.value = ["12","24"].includes(current) ? current : "12";
+    durationSelect.value =
+      ["12","24"].includes(currentDuration) ? currentDuration : "12";
+
+    kelongDurationField.hidden = true;
   } else {
-    kelongRateType.disabled = true;
-    kelongRateType.innerHTML = '<option value="na">N/A — No kelong</option>';
+    // Every other package may be booked with no Kelong, weekday Kelong, or weekend Kelong.
+    kelongRateType.innerHTML =
+      '<option value="na">N/A — No kelong</option>' +
+      '<option value="weekday">Weekday</option>' +
+      '<option value="weekend">Weekend / Public Holiday</option>';
+
+    kelongRateType.value =
+      ["na","weekday","weekend"].includes(currentKelongType)
+        ? currentKelongType
+        : "na";
 
     durationSelect.innerHTML =
       '<option value="2">2 hours</option>' +
@@ -136,9 +179,19 @@ function updatePackageFields() {
       '<option value="6">6 hours</option>' +
       '<option value="8">8 hours</option>';
 
-    durationSelect.value = ["2","4","6","8"].includes(current) ? current : "6";
+    durationSelect.value =
+      ["2","4","6","8"].includes(currentDuration) ? currentDuration : "6";
+
+    kelongDurationField.hidden = kelongRateType.value === "na";
   }
 
+  calculatePrice();
+}
+
+function updateKelongOptions() {
+  if (packageSelect.value !== "kelong") {
+    kelongDurationField.hidden = kelongRateType.value === "na";
+  }
   calculatePrice();
 }
 
@@ -189,9 +242,10 @@ function showMessage(message, type = "info") {
 // EVENT LISTENERS - CALCULATE PRICE ON CHANGE
 // ============================================================
 
-[durationSelect, boatSelect, kelongRateType, ...addonCheckboxes].forEach(element => {
+[durationSelect, boatSelect, kelongDuration, ...addonCheckboxes].forEach(element => {
   element.addEventListener("change", calculatePrice);
 });
+kelongRateType.addEventListener("change", updateKelongOptions);
 packageSelect.addEventListener("change", updatePackageFields);
 
 // ============================================================
@@ -254,7 +308,10 @@ form.addEventListener("submit", async (e) => {
     date: dateInput.value,
     time: document.getElementById("time").value,
     durationHours: Number(durationSelect.value),
-    kelongRateType: packageSelect.value === "kelong" ? kelongRateType.value : "N/A",
+    kelongRateType: kelongRateType.value === "na" ? "N/A" : kelongRateType.value,
+    kelongDurationHours: packageSelect.value === "kelong"
+      ? Number(durationSelect.value)
+      : (kelongRateType.value === "na" ? null : Number(kelongDuration.value)),
     guests: Number(document.getElementById("guests").value),
     boat: boatSelect.value,
     addons: selectedAddons,
