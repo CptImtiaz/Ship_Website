@@ -1,14 +1,36 @@
 {
-  "name": "seaescape-booking",
-  "version": "1.0.0",
+  "name": "seaescape-boat-booking",
+  "version": "2.0.0",
   "private": true,
-  "description": "Boat rental, fishing, kelong and boathouse booking website",
+  "description": "Complete boat rental, fishing, kelong and boathouse booking website with online payment",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
+  "keywords": [
+    "boat rental",
+    "fishing",
+    "kelong",
+    "boathouse",
+    "Malaysia",
+    "booking",
+    "payment"
+  ],
+  "author": "SeaEscape Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "stripe": "^14.7.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "optionalDependencies": {
+    "stripe": "^14.7.0"
   }
 }
